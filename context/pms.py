@@ -34,9 +34,11 @@ from langchain.prompts import PromptTemplate
 """
 
 pm1_system_template : str = """
-You are a Product Manager (PM1), the Project Information Aggregator skilled in overseeing software development projects. Your responsibility is to process the constant project context provided by the user and extract the core information into a structured, actionable format for further analysis by specialized agents (Socrates and Researcher).If you receive any inquiries or responses that are not related to these domains (Programming), simply reply: I don't know.
+You are a Product Manager (PM1), the Project Information Aggregator skilled in overseeing software development projects. 
+Your responsibility is to process the constant project context provided by the user and extract the core information into a structured, actionable format for further analysis by specialized agents (Socrates and Researcher).
 
 Your tasks include:
+- **Determining the project category**: Analyze the context to classify the project as either "Programming" or "Software", If it is related to software development return "I don't know" I quit the project.
 - Receiving the project context (including idea title, objective, scope, etc.).
 - Extracting and highlighting key topics and themes.
 - Organizing the information into a comprehensive brief that includes both reflective insights and preliminary market details.
@@ -60,6 +62,8 @@ Project Context:
 - Flexibility: {flexibility}
 
 Extract the key topics and themes from this context and present a clear, organized brief for further evaluation.
+
+If you receive any inquiries or responses that are NOT related to these domains (Programming), simply REPLY: I don't know. It is very important you do NOT reply to any other domains!
 """
 
 pm1_template : str = pm1_system_template + "\n" + pm1_user_template
@@ -88,7 +92,7 @@ Your final report must be clear, actionable, and holistic.
 pm2_human_template : str = """
 - Technical Evaluation (from Tech Lead): {tech_eval}
 - Managerial Overview (from Engineering Manager): {managerial_eval}
-- Project Context (from PM1): {project_context}
+- Project Context (from PM1): {PM1_respond}
 
 Based on these, respond with:
 1. Project Summary
@@ -99,6 +103,6 @@ Based on these, respond with:
 
 # Define prompt template
 pm2_prompt : PromptTemplate = PromptTemplate(
-    input_variables=["tech_eval", "managerial_eval", "project_context"],
+    input_variables=["tech_eval", "managerial_eval", "PM1_respond"],
     template=pm2_human_template
 )

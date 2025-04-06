@@ -1,7 +1,7 @@
 from dotenv import load_dotenv
-from langchain_community.llms import Together
 from langchain_anthropic import ChatAnthropic
 from langchain_groq import ChatGroq
+from langchain_together import Together
 
 # Load environment variables
 load_dotenv()
@@ -23,7 +23,7 @@ llama_researcher = Together(
 
 claude_model = ChatAnthropic(
     model="claude-3-5-sonnet-20240620",
-    temperature=0.3,
+    temperature=0.38,
     max_tokens=1000,
     verbose=True
 )

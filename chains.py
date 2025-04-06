@@ -1,5 +1,12 @@
-from langchain.chains import RunnablePassthrough
-from langchain.output_parsers import StrOutputParser
+from langchain_core.runnables import RunnablePassthrough, RunnableLambda
+from langchain_core.output_parsers import StrOutputParser
+from typing import Dict, Any
+from context.pms import pm1_prompt, pm2_prompt
+from context.tech_lead import tech_lead_prompt
+from context.eng_m import engineering_manager_prompt
+from context.socrates import socrates_prompt
+from context.researcher import researcher_prompt
+from models import llama_socrates, llama_researcher, claude_model
 
 # Function to combine outputs for PM1
 def combine_for_pm1(inputs: Dict[str, Any]) -> Dict[str, Any]:

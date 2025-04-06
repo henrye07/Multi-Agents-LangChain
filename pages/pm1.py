@@ -1,5 +1,5 @@
 import streamlit as st 
-from chains import socrates_chain 
+from chains import pm1_chain
 from agent_logic import agent_chatbot
 # with st.sidebar:
 #     llama_api_key = st.text_input("LLAMA API Key", key="chatbot_api_key", type="password")
@@ -7,8 +7,8 @@ from agent_logic import agent_chatbot
 #     "[View the source code](https://github.com/streamlit/llm-examples/blob/main/Chatbot.py)"
 #     "[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/streamlit/llm-examples?quickstart=1)"
 
-st.title("💬 Tech Lead Chatbot")
+st.title("💬 Project Manager (PM1) Chatbot")
 st.caption("🚀 A Streamlit chatbot powered by Anthropic")
 
-report = st.session_state["report"].get('tech_validation', '')
-agent_chatbot(report)
+project_context = st.session_state.get("pm1_respond",'')
+agent_chatbot(project_context)
