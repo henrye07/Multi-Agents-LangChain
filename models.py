@@ -28,6 +28,13 @@ claude_model = ChatAnthropic(
     verbose=True
 )
 
+claude_model_chat = ChatAnthropic(
+    model="claude-3-5-sonnet-20240620",
+    temperature=0.4,
+    max_tokens=400,
+    verbose=True
+)
+
 gpt4o_mini = ChatGroq(
     model="gpt-4o-mini",
     temperature=0.3,

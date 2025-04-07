@@ -7,7 +7,7 @@ from agent_logic import agent_chatbot
 #     "[View the source code](https://github.com/streamlit/llm-examples/blob/main/Chatbot.py)"
 #     "[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/streamlit/llm-examples?quickstart=1)"
 
-st.title("💬 Project Manager (PM1) Chatbot")
+st.title("💬 Product Manager (PM1) Chatbot")
 st.caption("🚀 A Streamlit chatbot powered by Anthropic")
 
 project_context = st.session_state.get("pm1_respond",'')

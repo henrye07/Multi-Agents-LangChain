@@ -11,9 +11,8 @@ pages = {
         st.Page("pages/researcher_output.py", title="Researcher Output"),
         st.Page("pages/tech_lead_output.py", title="Tech Lead Output"),
         st.Page("pages/eng_manager_output.py", title="Engineering Manager Output"),
-    ],
-    "Workflow 2": [
-        st.Page("pages/designer_output.py", title="Designer Output"),
+        st.Page("pages/pm2.py", title="Product Manager - Final Decision"),
+        st.Page("pages/pm_chatbot.py", title="Product Manager Chatbot"),
     ]
 }
 
